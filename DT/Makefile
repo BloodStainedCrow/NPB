@@ -9,7 +9,7 @@ include ../sys/make.common
 DTPROGRAM  = $(BINDIR)/$(BENCHMARK).$(CLASS).x
 
 OBJS = dt.o DGraph.o \
-	${COMMON}/c_print_results.o ${COMMON}/c_timers.o ${COMMON}/c_randdp.o /persist/user/tim/Documents/Programming/mpi-test/libmpiuninit.so
+	${COMMON}/c_print_results.o ${COMMON}/c_timers.o ${COMMON}/c_randdp.o ${COMMON}/../libmpiuninit.so
 
 
 ${PROGRAM}: config ${OBJS}
