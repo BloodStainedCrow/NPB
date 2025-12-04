@@ -49,10 +49,7 @@ DGraph* newDGraph(char* nm){
   dg->node=(DGNode **)malloc(dg->maxNodes*sizeof(DGNode*));
   dg->arc=(DGArc **)malloc(dg->maxArcs*sizeof(DGArc*));
   dg->name=strdup(nm);
-  // TODO(Tim Aschhoff) In the original code dg->id is never written to here (Or anywhere else).
-  // It is however being read (while being uninitialized)!
-  // I have fixed this here to get MemorySanitizer to run the benchmark, but this seems like a bug to me?
-  dg->id = -42;
+  dg->id = 0;
   return dg;
 }
 int AttachNode(DGraph* dg, DGNode* nd) {

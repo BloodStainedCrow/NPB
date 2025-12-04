@@ -1,0 +1,12 @@
+diff --git a/DT/DGraph.c b/DT/DGraph.c
+index 65d5d5e..3a86b2f 100644
+--- a/DT/DGraph.c
++++ b/DT/DGraph.c
+@@ -49,6 +49,7 @@ DGraph* newDGraph(char* nm){
+   dg->node=(DGNode **)malloc(dg->maxNodes*sizeof(DGNode*));
+   dg->arc=(DGArc **)malloc(dg->maxArcs*sizeof(DGArc*));
+   dg->name=strdup(nm);
++  dg->id = 0;
+   return dg;
+ }
+ int AttachNode(DGraph* dg, DGNode* nd) {

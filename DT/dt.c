@@ -386,7 +386,7 @@ void arrShow(Arr* a){
 double CheckVal(Arr *feat){
   double csum=0.0;
   int i=0;
-  for(i=0;i<feat->len;i++){
+  for(i=1;i<feat->len;i++){
     csum+=feat->val[i]*feat->val[i]/feat->len; /* The truncation does not work since 
                                                   result will be 0 for large len  */
   }
@@ -425,7 +425,7 @@ Arr* RandomFeatures(char *bmname,int fdim,int id){
     timer_clear(id+1);
     timer_start(id+1);
   }
-  for(i=0;i<len;i+=fdim){
+  for(i=1;i<len;i+=fdim){
     seedx=(seedx*nxg)%nx;
     seedy=(seedy*nyg)%ny;
     seedz=(seedz*nzg)%nz;

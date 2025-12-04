@@ -92,7 +92,7 @@ CMPI_INC =
 #---------------------------------------------------------------------------
 # Global *compile time* flags for C programs
 #---------------------------------------------------------------------------
-CFLAGS	= -g
+CFLAGS	= -g -O0 -fno-inline
 
 #---------------------------------------------------------------------------
 # Global *link time* flags. Flags for increasing maximum executable 

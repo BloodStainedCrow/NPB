@@ -230,7 +230,7 @@ INT_TYPE *key_buff_ptr_global,         /* used by full_verify to get */
          total_lesser_keys;
 
 
-int      passed_verification;
+int      passed_verification = 0;
                                  
 
 
@@ -945,7 +945,7 @@ void rank( int iteration )
 int main( int argc, char **argv )
 {
 
-    int             i, iteration, itemp, active;
+    int             i, iteration, itemp = 0, active;
 
     double          timecounter, maxtime;
 
@@ -1004,8 +1004,12 @@ int main( int argc, char **argv )
         active = ( my_rank >= comm_size )? 0 : 1;
         MPI_Comm_split(MPI_COMM_WORLD, active, my_rank, &comm_work);
     }
-    else
-        MPI_Comm_dup(MPI_COMM_WORLD, &comm_work);
+    else {
+        // FIXME(Tim Aschhoff): MPI_Comm_dup currently will just segfault
+        // MPI_Comm_dup(MPI_COMM_WORLD, &comm_work);
+        comm_work = MPI_COMM_WORLD;
+
+    }
 
     if (!active) {
         MPI_Finalize();
